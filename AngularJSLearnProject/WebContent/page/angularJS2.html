@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+<meta charset="UTF-8">
+<title>angularJS2</title>
+<script src="../js/angular.min.js"></script>
+<script src="../js/angularJS2.js"></script>
+<link rel="stylesheet" href="../css/angularJS2.css">
+
+</head>
+<body>
+	angularJS2.html
+
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<h2>TODO</h2>
+	<div ng-controller="TodoListController as todoList">
+		<span>{{todoList.remaining()}} of {{todoList.todos.length}}
+			remaining</span> [<a href="" ng-click="todoList.archive()">achieve</a>]
+
+		<ul class="unstyled">
+			<li ng-repeat="todo in todoList.todos">
+			<label class="checkbox">
+			<input type = "checkbox" ng-model = "todo.done">
+			<span class = "done-{{todo.done}}">{{todo.text}}</span>
+			</label>
+			</li>
+		</ul>
+
+		<form ng-submit = "todoList.addTodo()">
+		  <input type= "text" ng-model = "todoList.todoText" size = "30" placeholder = "add new todo here">
+		  <input class = "btn-primary" type = "submit" value = "add">
+		</form>
+
+		<br />
+		<br />
+		<br />
+		<br />
+
+		<form ng-submit = "todoList.addTodo1()">
+		  <input type = "checkbox" ng-model = "todoList.done">
+		  <input type= "text" ng-model = "todoList.todoText1" size = "30" placeholder = "add new todo here">
+		  <input class = "btn-primary" type = "submit" value = "add">
+		</form>
+	</div>
+</body>
+</html>
